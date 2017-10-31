@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zzuli.brand.mapper.BrandMapperCustom" >
+  <resultMap id="BaseResultMap" type="edu.zzuli.brand.pojo.po.Brand" >
+    <id column="bid" property="bid" jdbcType="CHAR" />
+    <result column="bname" property="bname" jdbcType="VARCHAR" />
+    <result column="local" property="local" jdbcType="VARCHAR" />
+    <result column="portfolio" property="portfolio" jdbcType="VARCHAR" />
+    <result column="similar" property="similar" jdbcType="VARCHAR" />
+    <result column="application" property="application" jdbcType="VARCHAR" />
+    <result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="number" property="number" jdbcType="CHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="cid" property="cid" jdbcType="CHAR" />
+  </resultMap>
+<!-- 分页查找 -->
+<select id="findByPage" parameterType="edu.zzuli.brand.pojo.vo.BrandVo" resultType="edu.zzuli.brand.pojo.po.Brand">
+SELECT * 
+FROM brand b LEFT JOIN category c ON b.cid = c.cid
+LIMIT #{pageBean.benginp},5;
+
+</select>
+<sql id="Base_Column_List" >
+    bid, bname, local, portfolio, similar, application, starttime, endtime, number, price, 
+    image, cid
+  </sql>
+<!-- 查询总记录数 -->
+<select id="findBrandCount" parameterType="edu.zzuli.brand.pojo.vo.BrandVo" resultType="int">
+SELECT count(*) FROM brand
+
+</select>
+<!-- 按cid查询 -->
+<select id="selectByCid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from brand
+    where cid = #{cid,jdbcType=CHAR}
+  </select>
+<select id="selectByApplication" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from brand
+    where application = #{application,jdbcType=CHAR}
+  </select>
+</mapper>

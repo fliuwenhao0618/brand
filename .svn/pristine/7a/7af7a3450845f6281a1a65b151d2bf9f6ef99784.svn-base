@@ -1,0 +1,42 @@
+package edu.zzuli.brand.controller;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.zzuli.brand.service.BrandService;
+
+/**
+ * 商标controller
+ * @author 刘文豪，马明旭，赵一航
+ *
+ */
+@Controller
+@RequestMapping("/brand")
+public class BrandController {
+	@Resource
+	private BrandService brandService;
+	/**
+	 * 转跳到后台index页面
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/toBgIndex.action")
+	public String toBgIndex(HttpServletRequest request, Model model){
+		return "/admin/bg_index.jsp";
+	}
+	/**
+	 * 转跳到前台index页面
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/toIndex.action")
+	public String toIndex(HttpServletRequest request, Model model){
+		return "index.jsp";
+	}
+}

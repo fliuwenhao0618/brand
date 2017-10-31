@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<base href="<%=basePath%>">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>添加信息</title>
+    <link href="admin/css/bg_index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="bg_index">
+        <div class="bg_top">
+            <span>xxx管理员 你好！</span>
+            <font>欢迎来到知孚IP后台管理页面</font>
+        </div>
+        <div class="bg_content">
+            <ul class="bg_left">
+                <li><a id="bg_blue">信息管理</a></li>
+                <li><a href="bg_index.jsp" id="bg_left_active">添加信息</a></li>
+                <li><a href="admin/bg_select.jsp">查询信息</a></li>
+                <li><a href="<%=basePath%>items/showItems.action">订单信息</a></li>
+                <li><a href="#" id="bg_blue">退出登陆</a></li>
+            </ul>
+        <from class="bg_form">
+                &nbsp; &nbsp;商品名称:<input type="text" value="" />&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;状态:<input type="text" value="" /><br>
+            &nbsp;&nbsp;&nbsp;商品类别:<select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;商品图片:<input type="file" value="" /><br>
+            商品注册号:<input type="text" value="" /><br>
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 所属地:<input type="text" value="" /><br>
+            &nbsp;&nbsp;&nbsp;组合类型:<input type="text" value="" /><br>
+            &nbsp; &nbsp;使用项目:<input type="text" value="" /><br>
+            <input id="bg_sub" type="submit" value="提交">
+        </from>
+    </div>
+</body>
+</html>

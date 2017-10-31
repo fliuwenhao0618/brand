@@ -1,0 +1,17 @@
+package edu.zzuli.brand.service;
+
+import java.util.List;
+
+import edu.zzuli.brand.pojo.po.Brand;
+
+public interface BrandService {
+
+	List<Brand> selectBrands();
+
+	Brand selectBrandByBid(String bid);
+
+	List<Brand> selectBrandsByCid(String string);
+
+	List<Brand> findByApplication(String application);
+
+}

@@ -1,0 +1,137 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* reset */
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,textarea,table,th,td,select,img,div,dl,dt,dd,input{ margin:0; padding:0; }
+em { font-style:normal; }
+img{ border:none;vertical-align:top;/*谨慎使用*/ }
+li{ list-style:none; }
+table { border-collapse:collapse; }/*表格在默认状态下，边框与边框之间会有一定的空隙，border-collapse:collapse;可以消除边框与边框之间的间距*/
+input,select,textarea{ outline:none; }/*无轮廓*/
+textarea { resize:none; overflow:auto; }
+a{ text-decoration:none; color:black; }
+a:hover{ color:#eb0e1f !important; }
+body { font-size:16px; font-family:"Microsoft Yahei";}
+
+.active{ color:#eb0e1f; }
+.left{ float:left; }
+.right{ float:right;}
+
+#top,#footer,#content{ width:100%; margin:0 auto; }
+#register{ width:1200px; margin:0 auto; }
+
+/*顶部*/
+#top{
+	height:30px;
+	background:#f5f5f5;
+	font-size:16px;
+	line-height:30px; 
+}
+#top .text{
+	width:1200px;
+	height:30px;
+	margin:0 auto;
+}
+#top li{
+	float:left;
+	padding-left:20px;
+}
+/*注册*/
+#register{
+	height:60px;
+	margin:30px auto;
+}
+#register span{
+	padding-left:10px;
+	color:#3c3c3c;
+	font-size:30px;
+	line-height:60px;
+}
+#register a{
+	float:right;
+	padding-left:35px;
+	color:#3c3c3c;
+	background:url(../images/register/return_index.gif) 0px 15px no-repeat;
+}
+/*中间内容*/
+#content{
+	background:#7d92aa;
+}
+#content .picture{
+	width:1200px;
+	height:650px;
+	border-left:1px #fff ;
+	margin:0 auto;
+	background:url(../images/register/bg.jpg) 50% 50% no-repeat;
+}
+#content form{
+	height:650px;
+	padding:0 50%;
+	color:#fcfdfe;
+	background:#fff;
+	background-color:rgba(255,255,255,0.4)!important;
+	filter:Alpha(opacity=40);	
+	position:relative;
+}
+#content ul{
+	width:400px;
+	padding:0 40px;
+	border-right:1px #fff dashed;
+	position:absolute;
+	top:15px;
+	left:150px;
+	text-align:right;
+}
+#content form li{
+	padding:10px 0;	
+	float: left;
+}
+#content form input{
+	width:385px;
+	height:40px;
+	padding-left:15px;
+	border:none;
+	border-radius:5px;
+	font-size:18px;
+	line-height:40px;
+}
+#content form .submit{
+	display:block;
+	width:400px;
+	height:40px;
+	background:#f8626d;
+	border-radius:5px;
+	font-size:20px;
+	line-height:40px;
+	color:#fff;
+	text-align:center;
+	cursor: pointer;
+}
+#content form span{
+	display:block;
+	padding-left:10px;
+	text-align:left;
+	font-size:12px;
+}
+#content p{
+	margin-top:-15px;	
+	clear: both;
+}
+/*底部*/
+#botoom{
+	height:150px;
+	background:#444;
+}
+#botoom .relatives{
+	padding-top:40px;
+	text-align:center;
+	color:#fff;
+} 
+#botoom .relatives a{
+	padding:0 30px;
+	color:#fff;
+}
+
+#a{
+	width:200px; position:relative; right:36px;
+}

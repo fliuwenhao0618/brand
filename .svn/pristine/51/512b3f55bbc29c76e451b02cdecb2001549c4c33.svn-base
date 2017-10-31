@@ -1,0 +1,38 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd ">
+<!-- 配置SqlSessionFactory
+从spring和mybatis的整合包中获取
+ -->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!-- 加载数据源 -->
+    <property name="dataSource" ref="dataSource"/>
+    <!-- 配置SqlMapConfig.xml -->
+    <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"/>
+</bean>
+
+
+<!--配置 mapper自动扫描器
+ bean名称就是mapper类型（首字母小写）
+ -->
+
+<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+   <!-- 配置扫描包路径 ，如果扫描多个包路径，中间使用半角逗号分隔-->
+   <property name="basePackage" value="edu.zzuli.brand.mapper"/>
+    <!-- 配置SqlSessionFactory -->
+    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+</bean>
+
+
+</beans>

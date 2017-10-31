@@ -1,0 +1,150 @@
+package edu.zzuli.brand.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.zzuli.brand.pojo.po.User;
+import edu.zzuli.brand.service.UserService;
+import edu.zzuli.brand.service.impl.UserException;
+
+
+/**
+ * 用户controller
+ * 赵一航
+ *
+ */
+@Controller
+public class UserController {
+	
+	@Resource
+	private UserService userService;
+	
+	
+	/**
+	 * 
+	* @Title: register 
+	* @Description: TODO(注册方法) 
+	* @param request
+	* @param model
+	* @return    设定文件 
+	* @return String    返回类型 
+	* @throws
+	 */
+	@RequestMapping(value="/register.action")
+	public String register(HttpServletRequest request,HttpSession session,
+			String confirm,User user, Model model){
+		//1.封装表单
+		//2.补全uid
+		
+		user.setUid(UUID.randomUUID().toString());
+		//校验
+		Map<String,String> errors  = new HashMap<String,String>();
+		//检验用户名
+		String username = user.getUsername();
+		
+		if(username==null || username.trim().isEmpty()){
+			errors.put("username","用户名不能为空！");
+		}
+		
+		//校验密码
+		String password = user.getPassword();
+		if(password==null || password.trim().isEmpty()){
+			errors.put("password", "密码不能为空！");
+		}else if(password.length()<6 || password.length()>16){
+			errors.put("password", "密码长度必须为6~16");
+		}
+		
+		//重复密码校验
+		if(!confirm.equals(password))
+			errors.put("confirm", "请保持一致");
+		
+		
+		//校验邮箱
+		String email = user.getEmail();
+		if(email == null || email.trim().isEmpty()) {
+			errors.put("email", "Email不能为空！");
+		} else if(!email.matches("\\w+@\\w+\\.\\w+")) {
+			errors.put("email", "Email格式错误！");
+		}
+		
+		/*
+		 * 校验验证码是否输入正确
+		 */
+		  
+		//1.得到session域中的
+		String session_code = (String)request.getSession().getAttribute("session_vcode");
+		
+		//2.得到表单信息
+		String code = user.getCode();
+		System.out.println(session_code);
+		System.out.println(code);
+		if(!code.equalsIgnoreCase(session_code))
+			errors.put("code", "验证码不匹配");
+		
+		/*
+		 * 判断是否存在错误信息
+		 */
+		if(errors.size()>0){
+			//保存错误消息
+			model.addAttribute("errors", errors);
+			
+			//保存表单信息
+			model.addAttribute("user",user);
+			return "register.jsp";
+		}
+		
+		/*
+		 * 调用UserService
+		 */
+		try {
+			userService.register(user);
+		} catch (UserException e) {
+			/*
+			 * 1.保存异常信息
+			 * 2.保存user表单，进行回显
+			 * 3.转发到注册页面从新注册
+			 */
+			model.addAttribute("message",e.getMessage());
+			model.addAttribute("user",user);
+			return "register.jsp";
+		}
+		
+		return "login.jsp";
+	}
+	
+	
+	/**
+	* @Title: loging 
+	* @Description: TODO(登录功能) 
+	* @param user
+	* @param model
+	* @return    设定文件 
+	* @return String    返回类型 
+	* @throws
+	 */
+	@RequestMapping(value="login.action")
+	public String loging(HttpServletRequest request, User form, Model model){
+		
+		/*
+		 * 1.调用userService完成登录
+		 */
+		try {
+			User user = userService.login(form);
+		} catch (UserException e) {
+			model.addAttribute("user", form);
+			model.addAttribute("message", e.getMessage());
+			return "login.jsp";
+		}
+		return "index.jsp";
+		
+	}
+}

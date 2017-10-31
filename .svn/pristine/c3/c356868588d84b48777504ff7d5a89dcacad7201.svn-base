@@ -1,0 +1,7 @@
+package edu.zzuli.brand.service.impl;
+
+import edu.zzuli.brand.service.ItemsService;
+
+public class ItemServiceImpl implements ItemsService {
+
+}

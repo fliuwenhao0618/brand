@@ -1,0 +1,158 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>查询信息</title>
+    <link href="css/bg_index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="bg_index">
+        <div class="bg_top">
+            <span>xxx管理员 你好！</span>
+            <font>欢迎来到知孚IP后台管理页面</font>
+        </div>
+        <div class="bg_content">
+            <ul class="bg_left">
+                <li><a id="bg_blue">信息管理</a></li>
+                <li><a href="bg_index.html">添加信息</a></li>
+                <li><a id="bg_left_active">查询信息</a></li>
+                
+                <li><a href="#" id="bg_blue">退出登陆</a></li>
+            </ul>
+            
+            <table class="bg_right">
+                    <tr>
+                        <th>序号</th>
+                        <th>商品名称</th>
+                        <th>状态</th>
+                        <th>注册号</th>
+                        <th>所属地</th>
+                        <th>类别</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>
+                            <a href="bg_change.html">修改</a>
+                            <a href="#">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>
+                            <a href="bg_change.html">修改</a>
+                            <a href="#">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>
+                            <a href="bg_change.html">修改</a>
+                            <a href="#">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>
+                            <a href="bg_change.html">修改</a>
+                            <a href="#">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>
+                            <a href="bg_change.html">修改</a>
+                            <a href="#">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>
+                            <a href="bg_change.html">修改</a>
+                            <a href="#">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>
+                            <a href="bg_change.html">修改</a>
+                            <a href="#">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>
+                            <a href="bg_change.html">修改</a>
+                            <a href="#">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>商品名称</td>
+                        <td>
+                            <a href="bg_change.html">修改</a>
+                            <a href="#">删除</a>
+                        </td>
+                    </tr>
+                       
+                </table> 
+        </div>
+        <p class="bg_page">
+                <a href="#">上一页</a>
+                <a id="bg_active" href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">下一页</a>
+            </p>
+    </div>
+</body>
+</html>

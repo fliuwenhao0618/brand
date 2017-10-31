@@ -1,0 +1,9 @@
+package edu.zzuli.brand.controller;
+/**
+ * 分类下的子类
+ * @author 刘文豪
+ *
+ */
+public class ChcategoryController {
+
+}

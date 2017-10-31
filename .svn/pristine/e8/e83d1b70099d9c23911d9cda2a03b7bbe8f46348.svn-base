@@ -1,0 +1,9 @@
+package edu.zzuli.brand.controller;
+/**
+ * 商标controller
+ * @author 刘文豪，马明旭，赵一航
+ *
+ */
+public class BrandController {
+
+}

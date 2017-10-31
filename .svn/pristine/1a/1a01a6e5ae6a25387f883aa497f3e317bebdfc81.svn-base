@@ -1,0 +1,9 @@
+package edu.zzuli.brand.controller;
+/**
+ * 分类controller
+ * @author 赵一航
+ *
+ */
+public class CatrgoryController {
+
+}

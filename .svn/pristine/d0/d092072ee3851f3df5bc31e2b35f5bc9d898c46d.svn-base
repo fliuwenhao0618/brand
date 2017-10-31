@@ -1,0 +1,47 @@
+package edu.zzuli.brand.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import edu.zzuli.brand.mapper.BrandMapper;
+import edu.zzuli.brand.mapper.BrandMapperCustom;
+import edu.zzuli.brand.pojo.po.Brand;
+import edu.zzuli.brand.service.BrandService;
+
+public class BrandServiceImpl implements BrandService{
+	@Resource
+	private BrandMapper brandMapper;
+	@Resource
+	private BrandMapperCustom brandMapperCustom;
+	/**
+	 * 查询所有brand
+	 */
+	@Override
+	public List<Brand> selectBrands() {
+		// TODO Auto-generated method stub
+		return brandMapper.selectByExample(null);
+	}
+	/**
+	 * 按bid查询brand
+	 */
+	@Override
+	public Brand selectBrandByBid(String bid) {
+		// TODO Auto-generated method stub
+		return brandMapper.selectByPrimaryKey(bid);
+	}
+
+	@Override
+	public List<Brand> selectBrandsByCid(String cid) {
+		// TODO Auto-generated method stub
+		return brandMapperCustom.selectByCid(cid);
+	}
+
+	@Override
+	public List<Brand> findByApplication(String application) {
+		// TODO Auto-generated method stub
+		
+		return brandMapperCustom.selectByApplication(application);
+	}
+
+}

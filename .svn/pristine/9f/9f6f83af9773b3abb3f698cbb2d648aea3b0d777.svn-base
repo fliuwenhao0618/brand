@@ -1,0 +1,63 @@
+package edu.zzuli.brand.service.impl;
+
+
+import javax.annotation.Resource;
+
+
+import edu.zzuli.brand.mapper.UserMapper;
+import edu.zzuli.brand.mapper.UserMapperCustom;
+import edu.zzuli.brand.pojo.po.User;
+import edu.zzuli.brand.service.UserService;
+/**
+ * 
+* @ClassName: UserServiceImpl 
+* @Description: TODO(UserService实现类，注册和登录业务层) 
+* @author 赵一航
+* @date 2017年10月15日 下午4:57:19 
+*
+ */
+
+public class UserServiceImpl implements UserService{
+	@Resource
+	private UserMapper userMapper;
+	
+	@Resource
+	private UserMapperCustom userMapperCustom;
+	/**
+	 * 校验用户信息是否已经注册
+	 * @throws UserException 
+	 */
+	public void register(User user) throws UserException {
+		String username = user.getUsername();
+		userMapper.selectByUsername(username);
+		
+		//校验用户名是否已经注册
+		if(username==null)
+			throw new UserException("用户名已经被注册");
+		
+		//信息正确插入数据
+		userMapper.insert(user);
+	}
+	/**
+	 * 校验用户名和密码是否正确
+	 */
+	public User login(User form) throws UserException {
+	
+		//查询用户名是否存在
+		String username = form.getUsername();
+		User user = userMapper.selectByUsername(username);
+		
+		if(user == null)
+			throw new UserException("用户名不存在");
+		
+		/*
+		 * 判断密码是否正确
+		 *  如果不同抛出异常
+		 */
+		if(!user.getPassword().equals(form.getPassword()))
+			throw new UserException("密码错误");
+		return user;
+	}
+
+
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改信息</title>
+    <link href="css/bg_index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="bg_index">
+        <div class="bg_top">
+            <span>xxx管理员 你好！</span>
+            <font>欢迎来到知孚IP后台管理页面</font>
+        </div>
+        <div class="bg_content">
+            <ul class="bg_left">
+                <li><a id="bg_blue">信息管理</a></li>
+                <li><a href="bg_index.html">添加信息</a></li>
+                <li><a href="bg_select.html">查询信息</a></li>
+          
+                <li><a href="#" id="bg_blue">退出登陆</a></li>
+            </ul>
+            
+        <font class="bg_success">xxx成功！</font>
+    </div>
+</body>
+</html>

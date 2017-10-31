@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zzuli.brand.mapper.BrandMapperCustom" >
+<!-- 分页查找 -->
+<select id="findByPage" parameterType="edu.zzuli.brand.pojo.vo.BrandVo" resultType="edu.zzuli.brand.pojo.po.Brand">
+SELECT * 
+FROM brand b LEFT JOIN category c ON b.cid = c.cid
+LIMIT #{pageBean.benginp},5;
+
+</select>
+
+<!-- 查询总记录数 -->
+<select id="findBrandCount" parameterType="edu.zzuli.brand.pojo.vo.BrandVo" resultType="int">
+SELECT count(*) FROM brand
+
+</select>
+
+
+</mapper>

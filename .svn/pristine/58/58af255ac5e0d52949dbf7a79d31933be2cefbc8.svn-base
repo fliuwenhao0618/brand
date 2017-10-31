@@ -1,0 +1,71 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<title>知孚IP</title>
+	<link href="css/register.css" rel="stylesheet" type="text/css" />
+  <link href="images/index/ICO32.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+
+<body>
+	<!--头部-->
+	<div id="top">
+    <div class="text">
+    		<ul class="log left">
+        	<li style="padding:0;">欢迎来到知孚IP！</li>
+          <li><a class="active" href="login.html">请登录</a></li>
+          <li><a href="register.html">免费注册</a></li>
+        </ul>
+        <ul class="detail right">
+        	<li><a href="#">个人信息</a></li>
+          <li><a href="#">收藏夹</a></li>
+          <li>服务热线：<span class="active">000-000-0000</span></li>
+        </ul>
+      </div>
+  </div>
+  <!--注册-->
+  <div id="register">
+  	<img src="images/index/LOGO.gif" title="LOGO" alt="知孚IP" />
+    <span>用户注册</span>
+    <span><a href="index.html">返回首页</a></span>
+  </div>
+  <!--中间内容-->
+  <div id="content">
+  	<div class="picture">
+      <form>
+      	<ul>
+          <li><input name="user" type="text" placeholder="请输入用户名" /></li><span>6-18个字符</span>
+          <li><input name="password" type="password" placeholder="设定登录密码" /></li><span>6-16个字符，区分大小写</span>
+          <li><input name="confirm" type="password" placeholder="再次输入密码" /></li><span>再次确认</span>
+          <li><input name="phonenumber" type="text" placeholder="请输入手机号" /></li><span>忘记密码时，可以通过该手机号码快速找回密码</span>
+          <li><input name="QQ" type="text" placeholder="请输入QQ号" /></li><span>请确保您的QQ号码没有错误！</span>
+          <li><input name="mail" type="text" placeholder="请输入邮箱" /></li><span>请确保您的邮箱没有错误！</span>
+          <li><input style="width:200px; margin-right:40px;" name="" type="text" placeholder="请输入验证码"/><div></div></li>
+          <li><img style="width:140px; height:40px; background:red; display:inline-block" /></li><span>请填写图片中的字符，不区分大小写</span>
+          <li><a class="submit"  href="#" value="立即注册">立即注册</a></li>      
+          <p>已有账号？<a href="login.html">立即登录>>></a></p>
+        </ul>
+      </form>
+    </div>
+  </div>
+  <!--底部-->
+  <div id="botoom">
+  	<div class="relatives">
+    	<a href="#">关于我们</a> |
+      <a href="#">联系我们</a> |
+      <a href="#">问题反馈</a> |
+      <a href="#">友情链接</a>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

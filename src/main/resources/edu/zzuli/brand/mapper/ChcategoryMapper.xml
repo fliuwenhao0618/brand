@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zzuli.brand.mapper.ChcategoryMapper" >
+  <resultMap id="BaseResultMap" type="edu.zzuli.brand.pojo.po.Chcategory" >
+    <id column="chid" property="chid" jdbcType="CHAR" />
+    <result column="chname" property="chname" jdbcType="VARCHAR" />
+    <result column="cid" property="cid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    chid, chname, cid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="edu.zzuli.brand.pojo.po.ChcategoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from chcategory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from chcategory
+    where chid = #{chid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from chcategory
+    where chid = #{chid,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="edu.zzuli.brand.pojo.po.ChcategoryExample" >
+    delete from chcategory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="edu.zzuli.brand.pojo.po.Chcategory" >
+    insert into chcategory (chid, chname, cid)
+    values (#{chid,jdbcType=CHAR}, #{chname,jdbcType=VARCHAR}, #{cid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zzuli.brand.pojo.po.Chcategory" >
+    insert into chcategory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="chid != null" >
+        chid,
+      </if>
+      <if test="chname != null" >
+        chname,
+      </if>
+      <if test="cid != null" >
+        cid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="chid != null" >
+        #{chid,jdbcType=CHAR},
+      </if>
+      <if test="chname != null" >
+        #{chname,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null" >
+        #{cid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="edu.zzuli.brand.pojo.po.ChcategoryExample" resultType="java.lang.Integer" >
+    select count(*) from chcategory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update chcategory
+    <set >
+      <if test="record.chid != null" >
+        chid = #{record.chid,jdbcType=CHAR},
+      </if>
+      <if test="record.chname != null" >
+        chname = #{record.chname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cid != null" >
+        cid = #{record.cid,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update chcategory
+    set chid = #{record.chid,jdbcType=CHAR},
+      chname = #{record.chname,jdbcType=VARCHAR},
+      cid = #{record.cid,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zzuli.brand.pojo.po.Chcategory" >
+    update chcategory
+    <set >
+      <if test="chname != null" >
+        chname = #{chname,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=CHAR},
+      </if>
+    </set>
+    where chid = #{chid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zzuli.brand.pojo.po.Chcategory" >
+    update chcategory
+    set chname = #{chname,jdbcType=VARCHAR},
+      cid = #{cid,jdbcType=CHAR}
+    where chid = #{chid,jdbcType=CHAR}
+  </update>
+</mapper>

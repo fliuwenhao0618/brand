@@ -1,0 +1,9 @@
+package edu.zzuli.brand.mapper;
+
+import edu.zzuli.brand.pojo.po.Items;
+
+public interface ItemsMapperCustom {
+
+	int udpateStatus(Items record);
+
+}

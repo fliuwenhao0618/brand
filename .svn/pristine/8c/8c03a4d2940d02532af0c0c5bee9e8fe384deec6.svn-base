@@ -1,0 +1,15 @@
+package edu.zzuli.brand.service;
+
+import java.util.List;
+
+import edu.zzuli.brand.pojo.po.Items;
+
+public interface ItemsService {
+
+	boolean insert(Items item);
+
+	List<Items> selectItems();
+
+	int updateStatus(Items record);
+
+}

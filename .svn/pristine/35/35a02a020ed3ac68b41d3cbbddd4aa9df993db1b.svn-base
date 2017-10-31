@@ -1,0 +1,77 @@
+package edu.zzuli.brand.controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.jws.WebParam.Mode;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.zzuli.brand.pojo.po.Brand;
+import edu.zzuli.brand.pojo.po.Favorites;
+import edu.zzuli.brand.pojo.po.User;
+import edu.zzuli.brand.service.BrandService;
+import edu.zzuli.brand.service.FavoritesService;
+
+/**
+ * 收藏夹controller
+ * @author MMX
+ *
+ */
+@Controller
+public class FavoritesController {
+	@Resource
+	private FavoritesService favoritesService;
+	@Resource
+	private BrandService brandService;
+	/**
+	 * 添加收藏夹
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/insertFavorites")
+	public String insertFavorites(HttpServletRequest request,Model model) throws Exception{
+		String bid=request.getParameter("bid");
+		Brand brand=brandService.selectBrandByBid(bid);
+		Favorites favorite = new Favorites();
+		favorite.setFid(bid);
+		favorite.setBname(brand.getBname());
+		favorite.setStatus(brand.getPrice());
+		favorite.setApplication(brand.getApplication());
+		favorite.setImage(brand.getImage());
+		favorite.setCid(brand.getCid());
+		User user=(User) request.getSession().getAttribute("user_session");
+		
+		favorite.setUid(user.getUid());
+		int result = favoritesService.insert(favorite);
+		
+		
+		return "toDetails.action?bid="+bid;
+	}
+	/**
+	 * 显示收藏夹
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/showFavorites.action")
+	public String showFavorites(HttpServletRequest request,Model model) throws Exception{
+		User user=(User) request.getSession().getAttribute("user_session");
+		List<Favorites> list=favoritesService.findByUid(user.getUid());
+		model.addAttribute("list", list);
+		return "favorites.jsp";
+	}
+	
+	@RequestMapping("/removeFavorites.action")
+	public String removeFavorites(HttpServletRequest request,Model model) throws Exception{
+		String fid=request.getParameter("fid");
+		int result = favoritesService.removeByFid(fid);
+		
+		return "showFavorites.action";
+	}
+}

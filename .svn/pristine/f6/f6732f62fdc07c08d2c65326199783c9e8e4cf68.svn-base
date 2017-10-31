@@ -1,0 +1,82 @@
+package edu.zzuli.brand.controller;
+
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.zzuli.brand.pojo.po.Brand;
+import edu.zzuli.brand.service.BrandService;
+
+/**
+ * 商标controller
+ * @author 刘文豪，马明旭，赵一航
+ *
+ */
+@Controller
+public class BrandController {
+	@Resource
+	private BrandService brandService;
+	/**
+	 * 转跳到后台index页面
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/toBgIndex.action")
+	public String toBgIndex(HttpServletRequest request, Model model){
+		return "/admin/bg_index.jsp";
+	}
+	/**
+	 * 转跳到前台index页面
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/toIndex.action")
+	public String toIndex(HttpServletRequest request, Model model){
+		List<Brand> brands=brandService.selectBrands();
+		model.addAttribute("brands", brands);
+		List<Brand> c1=brandService.selectBrandsByCid("01");//服饰鞋帽
+		List<Brand> c2=brandService.selectBrandsByCid("03");//日化用品
+		List<Brand> c3=brandService.selectBrandsByCid("09");//电子产品
+		List<Brand> c4=brandService.selectBrandsByCid("07");//食品
+		List<Brand> c5=brandService.selectBrandsByCid("02");//家居用品
+		List<Brand> c6=brandService.selectBrandsByCid("05");//医药用品
+		model.addAttribute("c1",c1);
+		model.addAttribute("c2",c2);
+		model.addAttribute("c3",c3);
+		model.addAttribute("c4",c4);
+		model.addAttribute("c5",c5);
+		model.addAttribute("c6",c6);
+		return "/index.jsp";
+	}
+	/**
+	 *跳转到细节显示页面details.jsp
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/toDetails.action")
+	public String toDetails(HttpServletRequest request, Model model){
+		String bid=request.getParameter("bid");
+		Brand brand = brandService.selectBrandByBid(bid);
+		model.addAttribute("brand", brand);
+		return "/details.jsp";
+	}
+	
+	@RequestMapping("/findByApplication.action")
+	public String findByApplication(HttpServletRequest request, Model model) throws UnsupportedEncodingException{
+		String application = request.getParameter("application");
+		application=new String(application.getBytes("ISO8859-1"),"utf-8");
+		System.out.println(application);
+		List<Brand> brands = brandService.findByApplication(application);
+		
+		return null;
+	}
+}

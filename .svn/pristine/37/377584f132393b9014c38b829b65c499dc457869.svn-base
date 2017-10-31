@@ -1,0 +1,101 @@
+package edu.zzuli.brand.controller;
+
+import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.zzuli.brand.pojo.po.Items;
+import edu.zzuli.brand.service.ItemsService;
+
+/**
+ * 订单controller
+ * @author 马明旭
+ *
+ */
+@Controller
+@RequestMapping("/items")
+public class ItemsController {
+	@Resource
+	private ItemsService itemsService;
+	/**
+	 * 前台页面添加订单
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/insertItems.action")
+	public String insertItems(HttpServletRequest request, Model model)throws Exception{
+		Items item = new Items();
+		item.setIid(UUID.randomUUID().toString());
+		item.setName(request.getParameter("name"));
+		item.setFunction(request.getParameter("function"));
+		item.setBudget(Double.valueOf(request.getParameter("budget")));
+		item.setIcategory("电脑配件"/*request.getParameter("")*/);
+		item.setIprotfolio("中文+图形"/*request.getParameter("")*/);
+		item.setZishu(request.getParameter("zishu"));
+		item.setEc(request.getParameter("ec"));
+		item.setYear(request.getParameter("year"));
+		item.setContent(request.getParameter("context"));
+		item.setLinkman(request.getParameter("linkman"));
+		item.setTel(request.getParameter("tel"));
+		item.setBid("01");
+		item.setCid("01");
+		item.setStatus((byte) 0);
+		boolean flag=itemsService.insert(item);
+		if(flag==true){
+			model.addAttribute("message","添加成功");
+			System.out.println("添加成功");
+			return "/sucess.jsp";
+			
+		}else{
+			
+			model.addAttribute("message","添加失败");
+			return "/error.jsp";
+			
+		}
+		
+	}
+	/**
+	 * 后台管理显示 订单items
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping("/showItems.action")
+	public String showItems(HttpServletRequest request, Model model) throws Exception{
+		List<Items> items=itemsService.selectItems();
+		model.addAttribute("items", items);
+		return "../admin/bg_items.jsp";
+	}
+	/**
+	 * 售出商标 修改status字段
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping("/SellItem.action")
+	public String sellItem(HttpServletRequest request, Model model) throws Exception{
+		String iid = request.getParameter("iid");
+		Items item = new Items();
+		item.setIid(iid);
+		int result=itemsService.updateStatus(item);
+		
+		return "/items/showItems.action";
+	}
+	
+	@RequestMapping("/deleteItem.action")
+	public String deleteItem(HttpServletRequest request, Model model) throws Exception{
+		String iid=request.getParameter("iid");
+		int result = itemsService.deleteByIid(iid);
+		
+		return "/items/showItems.action";
+	}
+}

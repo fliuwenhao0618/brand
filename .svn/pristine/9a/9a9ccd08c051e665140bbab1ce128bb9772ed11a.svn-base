@@ -1,0 +1,27 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zzuli.brand.mapper.ItemsMapperCustom" >
+<resultMap id="BaseResultMap" type="edu.zzuli.brand.pojo.po.Items" >
+    <id column="iid" property="iid" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="function" property="function" jdbcType="VARCHAR" />
+    <result column="budget" property="budget" jdbcType="DOUBLE" />
+    <result column="icategory" property="icategory" jdbcType="VARCHAR" />
+    <result column="iprotfolio" property="iprotfolio" jdbcType="VARCHAR" />
+    <result column="zishu" property="zishu" jdbcType="VARCHAR" />
+    <result column="ec" property="ec" jdbcType="VARCHAR" />
+    <result column="year" property="year" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="linkman" property="linkman" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="bid" property="bid" jdbcType="CHAR" />
+    <result column="cid" property="cid" jdbcType="CHAR" />
+  </resultMap>
+<update id="udpateStatus" parameterType="edu.zzuli.brand.pojo.po.Items" >
+    update items
+    <set >
+        status = 1,    
+    </set>
+    where iid = #{iid,jdbcType=CHAR}
+  </update>
+</mapper>

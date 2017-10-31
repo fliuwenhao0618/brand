@@ -1,0 +1,233 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* reset */
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,textarea,table,th,td,select,img,div,dl,dt,dd,input{ margin:0; padding:0; }
+em { font-style:normal; }
+img{ border:none;vertical-align:top;/*谨慎使用*/ }
+li{ list-style:none; }
+table { border-collapse:collapse; }/*表格在默认状态下，边框与边框之间会有一定的空隙，border-collapse:collapse;可以消除边框与边框之间的间距*/
+input,select,textarea{ outline:none; }/*无轮廓*/
+textarea { resize:none; overflow:auto; }
+a{ text-decoration:none; color:black; }
+a:hover{ color:#eb0e1f !important; }
+body { font-size:16px; font-family:"Microsoft Yahei"; }
+
+.active{ color:#eb0e1f; }
+.left{ float:left; }
+.right{ float:right;}
+
+body,#top,#botoom,#content{ width:100%; margin:0 auto; }
+#login{ width:1200px; margin:0 auto; }
+
+/*顶部*/
+#top{
+	height:30px;
+	background:#f5f5f5;
+	font-size:16px;
+	line-height:30px; 
+}
+#top .text{
+	width:1200px;
+	height:30px;
+	margin:0 auto;
+}
+#top li{
+	float:left;
+	padding-left:20px;
+}
+/*登录*/
+#login{
+	height:60px;
+	margin:30px auto;
+}
+#login span{
+	padding-left:10px;
+	color:#3c3c3c;
+	font-size:30px;
+	line-height:60px;
+}
+#login a{
+	float:right;
+	padding-left:35px;
+	color:#3c3c3c;
+	background:url(../images/login/return_index.gif) 0px 15px no-repeat;
+}
+/*中间内容*/
+#content{
+	background:#0e1327;
+}
+
+#content .picture{
+	width:1200px;
+	height:650px;
+	margin:0 auto;
+	background:url(../images/login/login_bg.jpg) 50% 50% no-repeat;
+}
+#content .logbox{
+	width:350px;
+	height:400px;
+	padding:40px;
+	margin:60px;
+	background:#fff;
+	border:1px solid #3a80ef;
+	border-radius:5px;
+	text-align:center;
+}
+.logbox p{
+	font-size:28px;	
+}
+.logbox span{
+	color:#eb0e1f;
+}
+.logbox ul{
+	margin-top:40px;	
+}
+.logbox li{
+	float:left;
+	width:175px;
+	height:36px;
+	border-bottom:4px #dadada solid;
+}
+.logbox .active{
+	border-bottom:4px #eb0e1f solid;
+}
+.logbox .active a{
+	color:#eb0e1f;
+}
+.logbox .point{
+	display:block;
+	font-size:12px;
+	padding-left:10px;
+	text-align: left;
+}
+.logbox .account,.logbox .password{
+	width:331px;
+	height:40px;
+	padding-left:15px;
+	border:2px solid #dadada;
+	margin:10px 0;
+	font-size:18px;
+}
+.logbox .password{
+	margin-bottom:10px;
+}
+.logbox .checkbox{
+	width:16px;
+	height:16px;
+	margin-right:5px;
+}
+.logbox form a{
+	margin:0 10px;
+}
+
+.logbox form .log{
+	display:block;
+	width:350px;
+	height:40px;
+	margin:25px 0;
+	border-radius:5px;
+	background:#f8626d;
+	color:#fff;
+	font-size:20px;
+	line-height:40px;
+}
+ .WeChat{
+	padding-left:20px;
+	background:url(../images/login/WeChat.gif) 0 4px no-repeat;
+}
+.QQ{
+	padding-left:40px;
+	background:url(../images/login/QQ.gif) 20px 4px no-repeat;
+}
+/*动态验证码登录样式*/
+#content .logbox{
+	width:350px;
+	height:400px;
+	padding:40px;
+	margin:60px;
+	background:#fff;
+	border:1px solid #3a80ef;
+	border-radius:5px;
+	text-align:center;
+}
+.logbox .on p{
+	font-size:28px;	
+}
+.logbox .on span{
+	color:#eb0e1f;
+}
+.logbox .on ul{
+	margin-top:40px;	
+}
+.logbox .on li{
+	float:left;
+	width:175px;
+	height:36px;
+	border-bottom:4px #dadada solid;
+}
+.logbox .on .active{
+	border-bottom:4px #eb0e1f solid;
+}
+.logbox .on .active a{
+	color:#eb0e1f;
+}
+.logbox .on .verification-code{
+	width:386px;
+	height:56px;
+}
+.logbox .on .account,.logbox .on .import{
+	width:331px;
+	height:40px;
+	padding-left:15px;
+	border:2px solid #dadada;
+	margin:10px 0;
+	font-size:18px;
+}
+.logbox .on .import{
+	margin-bottom:20px;
+	width:184px;
+}
+.logbox .on .send{
+	padding:10px;
+	color:inherit;
+	border:2px solid #dadada;
+	font-size:14px;
+}
+.logbox .on .log{
+	display:block;
+	width:350px;
+	height:40px;
+	margin:15px 0 25px;
+	border-radius:5px;
+	background:#f8626d;
+	color:#fff;
+	font-size:20px;
+	line-height:40px;
+}
+.logbox .on .WeChat{
+	padding-left:20px;
+	background:url(img/WeChat.gif) 0 4px no-repeat;
+}
+.logbox .on .QQ{
+	padding-left:20px;
+	background:url(img/QQ.gif) 0 4px no-repeat;
+}
+/*底部*/
+#botoom{
+	height:150px;
+	background:#444;
+}
+#botoom .relatives{
+	padding-top:40px;
+	text-align:center;
+	color:#fff;
+} 
+#botoom .relatives a{
+	padding:0 30px;
+	color:#fff;
+}
+
+.logbox form{
+	display: none;
+}

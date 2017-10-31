@@ -1,0 +1,143 @@
+package edu.zzuli.brand.pojo.po;
+
+public class Items {
+    private String iid;
+
+    private String name;
+
+    private String function;
+
+    private Double budget;
+
+    private String icategory;
+
+    private String iprotfolio;
+
+    private String zishu;
+
+    private String ec;
+
+    private String year;
+
+    private String content;
+
+    private String linkman;
+
+    private String tel;
+
+    private String bid;
+
+    private String cid;
+
+    public String getIid() {
+        return iid;
+    }
+
+    public void setIid(String iid) {
+        this.iid = iid == null ? null : iid.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getFunction() {
+        return function;
+    }
+
+    public void setFunction(String function) {
+        this.function = function == null ? null : function.trim();
+    }
+
+    public Double getBudget() {
+        return budget;
+    }
+
+    public void setBudget(Double budget) {
+        this.budget = budget;
+    }
+
+    public String getIcategory() {
+        return icategory;
+    }
+
+    public void setIcategory(String icategory) {
+        this.icategory = icategory == null ? null : icategory.trim();
+    }
+
+    public String getIprotfolio() {
+        return iprotfolio;
+    }
+
+    public void setIprotfolio(String iprotfolio) {
+        this.iprotfolio = iprotfolio == null ? null : iprotfolio.trim();
+    }
+
+    public String getZishu() {
+        return zishu;
+    }
+
+    public void setZishu(String zishu) {
+        this.zishu = zishu == null ? null : zishu.trim();
+    }
+
+    public String getEc() {
+        return ec;
+    }
+
+    public void setEc(String ec) {
+        this.ec = ec == null ? null : ec.trim();
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year == null ? null : year.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getLinkman() {
+        return linkman;
+    }
+
+    public void setLinkman(String linkman) {
+        this.linkman = linkman == null ? null : linkman.trim();
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
+    }
+
+    public String getBid() {
+        return bid;
+    }
+
+    public void setBid(String bid) {
+        this.bid = bid == null ? null : bid.trim();
+    }
+
+    public String getCid() {
+        return cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid == null ? null : cid.trim();
+    }
+}

@@ -1,0 +1,85 @@
+package edu.zzuli.brand.pojo.po;
+
+import java.io.Serializable;
+
+public class Demand implements Serializable{
+    private String did;
+
+    private String need;
+
+    private String bc;
+
+    private Boolean level;
+
+    private String linkman;
+
+    private String tel;
+
+    private String qq;
+
+    private String email;
+
+    public String getDid() {
+        return did;
+    }
+
+    public void setDid(String did) {
+        this.did = did == null ? null : did.trim();
+    }
+
+    public String getNeed() {
+        return need;
+    }
+
+    public void setNeed(String need) {
+        this.need = need == null ? null : need.trim();
+    }
+
+    public String getBc() {
+        return bc;
+    }
+
+    public void setBc(String bc) {
+        this.bc = bc == null ? null : bc.trim();
+    }
+
+    public Boolean getLevel() {
+        return level;
+    }
+
+    public void setLevel(Boolean level) {
+        this.level = level;
+    }
+
+    public String getLinkman() {
+        return linkman;
+    }
+
+    public void setLinkman(String linkman) {
+        this.linkman = linkman == null ? null : linkman.trim();
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+}
